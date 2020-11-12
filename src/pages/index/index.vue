@@ -1,9 +1,19 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view>
-      <text class="title">{{ title }}</text>
-    </view>
+    <u-grid :col="3">
+      <u-grid-item>
+        <u-icon name="photo" :size="46"></u-icon>
+        <view class="grid-text">图片</view>
+      </u-grid-item>
+      <u-grid-item>
+        <u-icon name="lock" :size="46"></u-icon>
+        <view class="grid-text">锁头</view>
+      </u-grid-item>
+      <u-grid-item>
+        <u-icon name="hourglass" :size="46"></u-icon>
+        <view class="grid-text">沙漏</view>
+      </u-grid-item>
+    </u-grid>
   </view>
 </template>
 
@@ -26,26 +36,4 @@ export default {
 </script>
 
 <style>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin: 200rpx auto 50rpx auto;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
 </style>

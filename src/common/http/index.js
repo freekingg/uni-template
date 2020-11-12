@@ -1,4 +1,4 @@
-import _config from './config'; // 导入私有配置
+import _config from './config'; // 私有配置
 
 import { getToken } from '@/common/utils/token'
 
@@ -46,7 +46,7 @@ function _page_error(err) {
     switch (err) {
         case 401:
             // 错误码404的处理方式
-            console.error("请求背拒绝")
+            console.error("请求被拒绝")
             break;
         case 404:
             // 错误码404的处理方式
