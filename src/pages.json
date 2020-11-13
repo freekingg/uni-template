@@ -22,7 +22,13 @@
 			}
 		},
 		{
-			"path": "pages/user/login/code",
+			"path": "pages/user/register/index",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/user/forget/index",
 			"style": {
 				"navigationStyle": "custom"
 			}
