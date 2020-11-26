@@ -30,29 +30,29 @@
 <script>
 export default {
   props: {
-    text: String, //显示文本
+    text: String, // 显示文本
     rotate: {
-      //是否启动加载
+      // 是否启动加载
       type: [Boolean, String],
-      default: false,
+      default: false
     },
     bgColor: {
-      //按钮背景颜色
+      // 按钮背景颜色
       type: String,
-      default: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))',
+      default: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))'
     },
     fontColor: {
-      //按钮字体颜色
+      // 按钮字体颜色
       type: String,
-      default: '#FFFFFF',
-    },
+      default: '#FFFFFF'
+    }
   },
   computed: {
-    _rotate() {
-      //处理值
+    _rotate () {
+      // 处理值
       return String(this.rotate) !== 'false'
-    },
-  },
+    }
+  }
 }
 </script>
 

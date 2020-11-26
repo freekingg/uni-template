@@ -8,7 +8,7 @@ export default {
   },
   onHide: function () {
     console.log('App Hide')
-  },
+  }
   // 捕获 app error
   // onError(err) {
   // console.log(err)

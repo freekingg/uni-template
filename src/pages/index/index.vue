@@ -161,9 +161,10 @@
 
 <script>
 export default {
-  onLoad() {
+  onLoad () {
+    // eslint-disable-next-line no-undef
     getApp().globalData.username = 'test12'
-  },
+  }
 }
 </script>
 
