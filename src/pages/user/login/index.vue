@@ -36,13 +36,14 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 import { saveTokens } from '../../../common/utils/token'
 
 import wInput from '../../../components/watch-input/watch-input.vue'
 import wButton from '../../../components/watch-button/watch-button.vue'
 
+// eslint-disable-next-line no-unused-vars
 let _this
 
 export default {
@@ -70,17 +71,17 @@ export default {
     isLogin() {
       // 判断缓存中是否登录过，直接登录
       // try {
-      // 	const value = uni.getStorageSync('setUserData');
-      // 	if (value) {
-      // 		//有登录信息
-      // 		console.log("已登录用户：",value);
-      // 		_this.$store.dispatch("setUserData",value); //存入状态
-      // 		uni.reLaunch({
-      // 			url: '../../../pages/index',
-      // 		});
-      // 	}
+      // const value = uni.getStorageSync('setUserData')
+      // if (value) {
+      // // 有登录信息
+      // console.log('已登录用户：', value)
+      // _this.$store.dispatch('setUserData', value) // 存入状态
+      // uni.reLaunch({
+      // url: '../../../pages/index',
+      // })
+      // }
       // } catch (e) {
-      // 	// error
+      // // error
       // }
     },
     startLogin(e) {
@@ -122,38 +123,38 @@ export default {
 
       // getLogin()
       // .then(res => {
-      // 	//console.log(res)
-      // 	if(_this.phoneData==res.data.username && _this.passData==res.data.password){
-      // 		let userdata={
-      // 			"username":res.data.username,
-      // 			"nickname":res.data.nickname,
-      // 			"accesstoken":res.data.accesstoken,
-      // 		} //保存用户信息和accesstoken
-      // 		_this.$store.dispatch("setUserData",userdata); //存入状态
-      // 		try {
-      // 			uni.setStorageSync('setUserData', userdata); //存入缓存
-      // 		} catch (e) {
-      // 			// error
-      // 		}
-      // 		uni.showToast({
-      // 			icon: 'success',
-      // 			position: 'bottom',
-      // 			title: '登录成功'
-      // 		});
-      // 		uni.reLaunch({
-      // 			url: '../../../pages/index',
-      // 		});
-      // 	}else{
-      // 		_this.passData=""
-      // 		uni.showToast({
-      // 			icon: 'error',
-      // 			position: 'bottom',
-      // 			title: '账号或密码错误，账号admin密码admin'
-      // 		});
-      // 	}
-      // 	uni.hideLoading();
+      // console.log(res)
+      // if(_this.phoneData==res.data.username && _this.passData==res.data.password){
+      // let userdata={
+      // "username":res.data.username,
+      // "nickname":res.data.nickname,
+      // "accesstoken":res.data.accesstoken,
+      // } //保存用户信息和accesstoken
+      // _this.$store.dispatch("setUserData",userdata); //存入状态
+      // try {
+      // uni.setStorageSync('setUserData', userdata); //存入缓存
+      // } catch (e) {
+      // // error
+      // }
+      // uni.showToast({
+      // icon: 'success',
+      // position: 'bottom',
+      // title: '登录成功'
+      // });
+      // uni.reLaunch({
+      // url: '../../../pages/index',
+      // });
+      // }else{
+      // _this.passData=""
+      // uni.showToast({
+      // icon: 'error',
+      // position: 'bottom',
+      // title: '账号或密码错误，账号admin密码admin'
+      // });
+      // }
+      // uni.hideLoading();
       // }).catch(err => {
-      // 	uni.hideLoading();
+      // uni.hideLoading();
       // })
     },
     login_weixin() {

@@ -36,9 +36,11 @@
 </template>
 
 <script>
-let _this, countDown
+// eslint-disable-next-line no-unused-vars
+let _this
+let countDown
 export default {
-  data () {
+  data() {
     return {
       showPassword: false, // 是否显示明文
       second: 0, // 倒计时
@@ -83,7 +85,7 @@ export default {
     prop: 'value',
     event: 'input'
   },
-  mounted () {
+  mounted() {
     _this = this
     // 准备触发
     this.$on('runCode', val => {
@@ -92,11 +94,11 @@ export default {
     clearInterval(countDown) // 先清理一次循环，避免缓存
   },
   methods: {
-    showPass () {
+    showPass() {
       // 是否显示密码
       this.showPassword = !this.showPassword
     },
-    setCode () {
+    setCode() {
       // 设置获取验证码的事件
       if (this.isRunCode) {
         // 判断是否开始倒计时，避免重复点击
@@ -104,7 +106,7 @@ export default {
       }
       this.$emit('setCode')
     },
-    runCode (val) {
+    runCode(val) {
       // 开始倒计时
       if (String(val) === '0') {
         // 判断是否需要终止循环
@@ -120,8 +122,9 @@ export default {
       this.isRunCode = true
       this.second = this._setTime // 倒数秒数
 
-      let _this = this
-      countDown = setInterval(function () {
+      // eslint-disable-next-line no-shadow
+      const _this = this
+      countDown = setInterval(() => {
         _this.second--
         if (_this.second === 0) {
           _this.isRunCode = false
@@ -131,39 +134,37 @@ export default {
     }
   },
   computed: {
-    _type () {
+    _type() {
       // 处理值
-      const type = this.type
+      const { type } = this
       return type === 'password' ? 'text' : type
     },
-    _isShowPass () {
+    _isShowPass() {
       // 处理值
       return String(this.isShowPass) !== 'false'
     },
-    _isShowCode () {
+    _isShowCode() {
       // 处理值
       return String(this.isShowCode) !== 'false'
     },
-    _setTime () {
+    _setTime() {
       // 处理值
       const setTime = Number(this.setTime)
       return setTime > 0 ? setTime : 60
     },
-    _focus () {
+    _focus() {
       // 处理值
       return String(this.focus) !== 'false'
     },
-    getVerCodeSecond () {
+    getVerCodeSecond() {
       // 验证码倒计时计算
       if (this.second <= 0) {
         return this.codeText
-      } else {
-        if (this.second < 10) {
-          return '0' + this.second
-        } else {
-          return this.second
-        }
       }
+      if (this.second < 10) {
+        return `0${ this.second}`
+      }
+      return this.second
     }
   }
 }
