@@ -3,11 +3,11 @@ import request from '@/common/http'
 class Book {
   // constructor() {}
 
-  async getBooks() {
+  async getBooks () {
     return request({
       method: 'get',
       url: 'v1/book',
-      handleError: false,
+      handleError: false
     })
   }
 }

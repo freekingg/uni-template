@@ -106,7 +106,7 @@ export default {
     },
     runCode (val) {
       // 开始倒计时
-      if (String(val) == '0') {
+      if (String(val) === '0') {
         // 判断是否需要终止循环
         this.second = 0 // 初始倒计时
         clearInterval(countDown) // 清理循环
@@ -123,7 +123,7 @@ export default {
       let _this = this
       countDown = setInterval(function () {
         _this.second--
-        if (_this.second == 0) {
+        if (_this.second === 0) {
           _this.isRunCode = false
           clearInterval(countDown)
         }
@@ -134,7 +134,7 @@ export default {
     _type () {
       // 处理值
       const type = this.type
-      return type == 'password' ? 'text' : type
+      return type === 'password' ? 'text' : type
     },
     _isShowPass () {
       // 处理值

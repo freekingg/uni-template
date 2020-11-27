@@ -35,10 +35,11 @@
 <script>
 import wInput from '../../../components/watch-input/watch-input.vue'
 import wButton from '../../../components/watch-button/watch-button.vue'
+
 let _this
 
 export default {
-  data () {
+  data() {
     return {
       // logo图片 base64
       logoImage:
@@ -54,15 +55,15 @@ export default {
     wInput,
     wButton
   },
-  mounted () {
+  mounted() {
     _this = this
   },
   methods: {
-    isShowAgree () {
+    isShowAgree() {
       // 是否选择协议
       _this.showAgree = !_this.showAgree
     },
-    getVerCode () {
+    getVerCode() {
       // 获取验证码
       if (_this.phoneData.length !== 11) {
         uni.showToast({
@@ -80,7 +81,7 @@ export default {
         title: '模拟倒计时触发'
       })
 
-      setTimeout(function () {
+      setTimeout(() => {
         _this.$refs.runCode.$emit('runCode', 0) // 假装模拟下需要 终止倒计时
         uni.showToast({
           icon: 'none',
@@ -89,7 +90,7 @@ export default {
         })
       }, 3000)
     },
-    startReg () {
+    startReg() {
       // 注册
       if (this.isRotate) {
         // 判断是否加载中，避免重复点击请求
@@ -129,7 +130,7 @@ export default {
       }
       console.log('注册成功')
       _this.isRotate = true
-      setTimeout(function () {
+      setTimeout(() => {
         _this.isRotate = false
       }, 3000)
     }

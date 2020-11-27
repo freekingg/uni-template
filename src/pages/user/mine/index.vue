@@ -48,15 +48,15 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       pic: 'https://uviewui.com/common/logo.png',
       show: true
     }
   },
-  onLoad () {},
+  onLoad() {},
   methods: {
-    say () {}
+    say() {}
   }
 }
 </script>

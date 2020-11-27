@@ -46,7 +46,7 @@ import wButton from '../../../components/watch-button/watch-button.vue'
 let _this
 
 export default {
-  data () {
+  data() {
     return {
       // logo图片 base64
       logoImage:
@@ -61,13 +61,13 @@ export default {
     wInput,
     wButton
   },
-  mounted () {
+  mounted() {
     _this = this
     // this.isLogin();
   },
   methods: {
     ...mapActions(['setUserAndState']),
-    isLogin () {
+    isLogin() {
       // 判断缓存中是否登录过，直接登录
       // try {
       // 	const value = uni.getStorageSync('setUserData');
@@ -83,7 +83,7 @@ export default {
       // 	// error
       // }
     },
-    startLogin (e) {
+    startLogin(e) {
       console.log(e)
       if (this.phoneData.length === '') {
         uni.showToast({
@@ -156,7 +156,7 @@ export default {
       // 	uni.hideLoading();
       // })
     },
-    login_weixin () {
+    login_weixin() {
       uni.showToast({
         icon: 'none',
         position: 'bottom',
