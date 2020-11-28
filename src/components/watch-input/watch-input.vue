@@ -44,7 +44,7 @@ export default {
     return {
       showPassword: false, // 是否显示明文
       second: 0, // 倒计时
-      isRunCode: false // 是否开始倒计时
+      isRunCode: false, // 是否开始倒计时
     }
   },
   props: {
@@ -54,36 +54,36 @@ export default {
     maxlength: {
       // 最大长度
       type: [Number, String],
-      default: 20
+      default: 20,
     },
     isShowPass: {
       // 是否显示密码图标（二选一）
       type: [Boolean, String],
-      default: false
+      default: false,
     },
     isShowCode: {
       // 是否显示获取验证码（二选一）
       type: [Boolean, String],
-      default: false
+      default: false,
     },
     codeText: {
       type: String,
-      default: '获取验证码'
+      default: '获取验证码',
     },
     setTime: {
       // 倒计时时间设置
       type: [Number, String],
-      default: 60
+      default: 60,
     },
     focus: {
       // 是否聚焦
       type: [Boolean, String],
-      default: false
-    }
+      default: false,
+    },
   },
   model: {
     prop: 'value',
-    event: 'input'
+    event: 'input',
   },
   mounted() {
     _this = this
@@ -131,7 +131,7 @@ export default {
           clearInterval(countDown)
         }
       }, 1000)
-    }
+    },
   },
   computed: {
     _type() {
@@ -162,11 +162,11 @@ export default {
         return this.codeText
       }
       if (this.second < 10) {
-        return `0${ this.second}`
+        return `0${this.second}`
       }
       return this.second
-    }
-  }
+    },
+  },
 }
 </script>
 
