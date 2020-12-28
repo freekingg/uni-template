@@ -1,7 +1,9 @@
 /builds/
 /public/
 /dist/
-/script/.cache
+/script/
 /*.js
 /node_modules/
 /tests/unit/LIcon.test.js
+manifest.json
+page.json
