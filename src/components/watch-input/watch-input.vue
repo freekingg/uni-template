@@ -125,7 +125,7 @@ export default {
       // eslint-disable-next-line no-shadow
       const _this = this
       countDown = setInterval(() => {
-        _this.second--
+        _this.second -= 1
         if (_this.second === 0) {
           _this.isRunCode = false
           clearInterval(countDown)

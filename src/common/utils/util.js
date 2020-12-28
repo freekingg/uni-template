@@ -1,37 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { cloneDeep, throttle, debounce } from 'lodash'
 
 /* eslint-disable */
 const Utils = {}
-
-/** 参数说明：
- * 根据长度截取先使用字符串，超长部分追加…
- * str 对象字符串
- * len 目标字节长度
- * 返回值： 处理结果字符串
- */
-Utils.cutString = (str, len) => {
-  if (str.length * 2 <= len) {
-    return str
-  }
-  let strlen = 0
-  let s = ''
-  for (let i = 0; i < str.length; i++) {
-    // eslint-disable-line
-    s += str.charAt(i)
-    if (str.charCodeAt(i) > 128) {
-      strlen += 2
-      if (strlen >= len) {
-        return `${s.substring(0, s.length - 1)}...`
-      }
-    } else {
-      strlen += 1
-      if (strlen >= len) {
-        return `${s.substring(0, s.length - 2)}...`
-      }
-    }
-  }
-  return s
-}
 
 /**
  * 简单数组的交集
@@ -72,24 +43,6 @@ Utils.getRandomStr = (n = 6) => {
     str += chars.charAt(Math.floor(Math.random() * 62))
   }
   return str
-}
-
-function getTypeOf(obj) {
-  const { toString } = Object.prototype
-  const map = {
-    '[object Boolean]': 'boolean',
-    '[object Number]': 'number',
-    '[object String]': 'string',
-    '[object Function]': 'function',
-    '[object Array]': 'array',
-    '[object Date]': 'date',
-    '[object RegExp]': 'regExp',
-    '[object Undefined]': 'undefined',
-    '[object Null]': 'null',
-    '[object Object]': 'object',
-    '[object Symbol]': 'symbol',
-  }
-  return map[toString.call(obj)]
 }
 
 function insertItem(item, arr) {
@@ -205,49 +158,6 @@ Utils.hasPermission = (permissions, route, user) => {
     return permissions.some(permission => route.permission.indexOf(permission) > -1)
   }
   return true
-}
-
-let cached
-/**
- * 获取窗口滚动条大小, From: https://github.com/react-component/util/blob/master/src/getScrollBarSize.js
- * @param {boolean} fresh 强制重新计算
- * @returns {number}
- */
-export function getScrollBarSize(fresh) {
-  if (fresh || cached === undefined) {
-    const inner = document.createElement('div')
-    inner.style.width = '100%'
-    inner.style.height = '200px'
-
-    const outer = document.createElement('div')
-    const outerStyle = outer.style
-
-    outerStyle.position = 'absolute'
-    outerStyle.top = 0
-    outerStyle.left = 0
-    outerStyle.pointerEvents = 'none'
-    outerStyle.visibility = 'hidden'
-    outerStyle.width = '200px'
-    outerStyle.height = '150px'
-    outerStyle.overflow = 'hidden'
-
-    outer.appendChild(inner)
-
-    document.body.appendChild(outer)
-
-    const widthContained = inner.offsetWidth
-    outer.style.overflow = 'scroll'
-    let widthScroll = inner.offsetWidth
-
-    if (widthContained === widthScroll) {
-      widthScroll = outer.clientWidth
-    }
-
-    document.body.removeChild(outer)
-
-    cached = widthContained - widthScroll
-  }
-  return cached
 }
 
 export default Utils

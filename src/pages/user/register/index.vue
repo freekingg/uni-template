@@ -48,12 +48,12 @@ export default {
       passData: '', // 密码
       verCode: '', // 验证码
       showAgree: true, // 协议是否选择
-      isRotate: false // 是否加载旋转
+      isRotate: false, // 是否加载旋转
     }
   },
   components: {
     wInput,
-    wButton
+    wButton,
   },
   mounted() {
     _this = this
@@ -69,7 +69,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '手机号不正确'
+          title: '手机号不正确',
         })
         return false
       }
@@ -78,7 +78,7 @@ export default {
       uni.showToast({
         icon: 'none',
         position: 'bottom',
-        title: '模拟倒计时触发'
+        title: '模拟倒计时触发',
       })
 
       setTimeout(() => {
@@ -86,7 +86,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '模拟倒计时终止'
+          title: '模拟倒计时终止',
         })
       }, 3000)
     },
@@ -100,7 +100,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '请先同意《协议》'
+          title: '请先同意《协议》',
         })
         return false
       }
@@ -108,7 +108,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '手机号不正确'
+          title: '手机号不正确',
         })
         return false
       }
@@ -116,7 +116,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '密码不正确'
+          title: '密码不正确',
         })
         return false
       }
@@ -124,7 +124,7 @@ export default {
         uni.showToast({
           icon: 'none',
           position: 'bottom',
-          title: '验证码不正确'
+          title: '验证码不正确',
         })
         return false
       }
@@ -133,8 +133,8 @@ export default {
       setTimeout(() => {
         _this.isRotate = false
       }, 3000)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -200,13 +200,13 @@ export default {
   color: rgba(0, 0, 0, 0.7);
 }
 .wechat_color {
-  color: #83DC42;
+  color: #83dc42;
 }
 .weibo_color {
-  color: #F9221D;
+  color: #f9221d;
 }
 .github_color {
-  color: #24292E;
+  color: #24292e;
 }
 
 /* 底部 */

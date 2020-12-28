@@ -34,25 +34,25 @@ export default {
     rotate: {
       // 是否启动加载
       type: [Boolean, String],
-      default: false
+      default: false,
     },
     bgColor: {
       // 按钮背景颜色
       type: String,
-      default: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))'
+      default: 'linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.6))',
     },
     fontColor: {
       // 按钮字体颜色
       type: String,
-      default: '#FFFFFF'
-    }
+      default: '#FFFFFF',
+    },
   },
   computed: {
-    _rotate () {
+    _rotate() {
       // 处理值
       return String(this.rotate) !== 'false'
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -73,7 +73,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 30rpx;
   white-space: nowrap;
   overflow: hidden;
@@ -88,7 +88,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 30rpx;
   width: 100rpx;
   height: 100rpx;
