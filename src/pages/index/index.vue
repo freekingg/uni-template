@@ -156,15 +156,43 @@
         </view>
       </view>
     </view>
+    <u-button type="primary" @click="checkVersionClick()">版本升级</u-button>
+    <Upgrade
+      v-if="upgradeInfo"
+      :type="upgradeInfo.upgradeType"
+      :url="upgradeInfo.upgradeUrl"
+      title="发现新版本"
+      :content="upgradeInfo.upgradeContent"
+      ref="upgrade"
+    ></Upgrade>
   </view>
 </template>
-
 <script>
+import Upgrade from '@/components/upgrade/upgrade.vue'
+import checkVersion from '@/components/upgrade/index.js'
+
 export default {
+  components: {
+    Upgrade,
+  },
+  data() {
+    return {
+      upgradeInfo: null,
+    }
+  },
   onLoad() {
-    // eslint-disable-next-line no-undef
-    getApp().globalData.username = 'test12'
-  }
+    // #ifdef APP-PLUS
+    this.checkVersionHandle()
+    // #endif
+  },
+  methods: {
+    async checkVersionHandle() {
+      const upgradeInfo = await checkVersion()
+      console.log('upgradeInfo', upgradeInfo)
+      this.upgradeInfo = upgradeInfo
+      this.$refs.upgrade.show()
+    },
+  },
 }
 </script>
 

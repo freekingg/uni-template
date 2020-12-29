@@ -24,5 +24,6 @@ module.exports = {
   globals: {
     uni: true,
     ROUTES: true,
+    plus: true,
   },
 }
