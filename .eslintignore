@@ -2,8 +2,8 @@
 /public/
 /dist/
 /script/
-/*.js
-/node_modules/
-/tests/unit/LIcon.test.js
+postcss*.js
+babel*.js
+node_modules/
 manifest.json
-page.json
+pages.json
