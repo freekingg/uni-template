@@ -7,21 +7,10 @@ let archive = archiver('zip', {
   zlib: { level: 9 }, // 设置压缩级别
 })
 
-// 获取当前时间
-function getCurrentTime() {
-  let date = new Date()
-  let time =
-    date.getFullYear() +
-    '' +
-    (date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) +
-    '' +
-    (date.getDate() < 10 ? '0' + date.getDate() : date.getDate())
-  return time
-}
-
-console.log(__dirname)
-
 shell.echo('开始编辑wgt热更新包')
+
+// 获取包信息
+let appInfo = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/manifest.json')).toString())
 
 let sourcePath = path.join(__dirname, '../dist/build/app-plus')
 let targetPath = path.join(__dirname, '../dist/build/app-plus-wgt')
@@ -35,7 +24,7 @@ archive.pipe(output)
 archive.directory(sourcePath + '/', false)
 
 // 改名
-fs.renameSync(targetPath + '/dist.zip', targetPath + '/' + getCurrentTime() + '.wgt')
+fs.renameSync(targetPath + '/dist.zip', `${targetPath}/${appInfo.appid}_V${appInfo.versionName}.wgt`)
 
 archive.finalize()
-shell.echo('wgt热更新包编译完成')
+shell.echo('wgt热更新包编译完成', targetPath)
