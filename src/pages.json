@@ -19,18 +19,21 @@
     },
     {
       "path": "pages/user/login/index",
+      "aliasPath": "/login",
       "style": {
         "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/user/register/index",
+      "aliasPath": "/register",
       "style": {
         "navigationStyle": "custom"
       }
     },
     {
       "path": "pages/user/forget/index",
+      "aliasPath": "/forget",
       "style": {
         "navigationStyle": "custom"
       }
