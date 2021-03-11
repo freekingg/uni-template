@@ -1,4 +1,4 @@
-import { get_wgt_package } from '../api/sys'
+import Sys from '../api/sys'
 
 /**
  * 下载wgt安装包并安装
@@ -48,7 +48,7 @@ export function installWgt(data) {
 export function checkUpdate() {
   plus.runtime.getProperty(plus.runtime.appid, widgetInfo => {
     const type = uni.getSystemInfoSync().platform
-    get_wgt_package({
+    Sys.get_wgt_package({
       upgradeType: type,
       versionName: widgetInfo.version,
     }).then(data => {
