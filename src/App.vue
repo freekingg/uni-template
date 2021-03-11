@@ -1,10 +1,18 @@
 <script>
+import { checkUpdate } from './common/utils/update'
+import Utils from './common/utils/util'
+
 export default {
-  onLaunch() {
+  async onLaunch() {
     console.log('App Launch')
+    // #ifdef APP-PLUS
+    const isUpdate = await checkUpdate()
+    console.log('isUpdate', isUpdate)
+    // #endif
   },
   onShow() {
     console.log('App Show')
+    Utils.checkNetwork()
   },
   onHide() {
     console.log('App Hide')
@@ -17,6 +25,5 @@ export default {
 </script>
 
 <style lang="scss">
-/*每个页面公共css */
 @import 'uview-ui/index.scss';
 </style>

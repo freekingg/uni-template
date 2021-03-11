@@ -14,6 +14,9 @@
       "delay": 0
     },
     "modules": {},
+    "compatible": {
+      "ignoreVersion": true
+    },
     "distribute": {
       "android": {
         "permissions": [
