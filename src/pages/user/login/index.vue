@@ -70,9 +70,7 @@ export default {
         this.setUserAndState(userInfo)
         this.loading = false
         uni.hideLoading()
-        uni.reLaunch({
-          url: '/pages/index/index',
-        })
+        this.$Router.replaceAll({ name: 'index', params: { userId: '123' } })
       } catch (e) {
         this.loading = false
         uni.hideLoading()
